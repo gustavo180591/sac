@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=root
+      - DB_NAME=sac_db
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - sac-network
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=sac_db
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - sac-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./frontend/build:/usr/share/nginx/html
+    depends_on:
+      - backend
+    networks:
+      - sac-network
+
+volumes:
+  mysql-data:
+
+networks:
+  sac-network:
+    driver: bridge 

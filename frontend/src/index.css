@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+
+  .btn-secondary {
+    @apply inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+
+  .form-input {
+    @apply mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+
+  .form-error {
+    @apply mt-2 text-sm text-red-600;
+  }
+
+  .card {
+    @apply bg-white shadow overflow-hidden sm:rounded-lg;
+  }
+
+  .card-header {
+    @apply px-4 py-5 sm:px-6;
+  }
+
+  .card-body {
+    @apply px-4 py-5 sm:p-6;
+  }
+
+  .card-footer {
+    @apply px-4 py-3 bg-gray-50 text-right sm:px-6;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600;
+}
+
+/* Status badges */
+.status-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.status-badge-pendiente {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-badge-en-proceso {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.status-badge-resuelta {
+  @apply bg-green-100 text-green-800;
+}
+
+/* File upload */
+.file-upload {
+  @apply mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md;
+}
+
+.file-upload-text {
+  @apply text-sm text-gray-600;
+}
+
+.file-upload-button {
+  @apply relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500;
+}
+
+/* Modal */
+.modal-backdrop {
+  @apply fixed inset-0 z-50 overflow-y-auto;
+}
+
+.modal-content {
+  @apply inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full;
+}
+
+/* Table */
+.table-container {
+  @apply -my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8;
+}
+
+.table {
+  @apply min-w-full divide-y divide-gray-300;
+}
+
+.table-header {
+  @apply bg-gray-50;
+}
+
+.table-header-cell {
+  @apply py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6;
+}
+
+.table-body {
+  @apply divide-y divide-gray-200 bg-white;
+}
+
+.table-row {
+  @apply hover:bg-gray-50;
+}
+
+.table-cell {
+  @apply whitespace-nowrap px-3 py-4 text-sm text-gray-500;
+}
+
+/* Navigation */
+.nav-link {
+  @apply group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-700 hover:text-white hover:bg-gray-800;
+}
+
+.nav-link-active {
+  @apply bg-gray-800 text-white;
+}
+
+/* Profile dropdown */
+.profile-dropdown {
+  @apply absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none;
+}
+
+.profile-dropdown-item {
+  @apply block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-50;
+}
+
+/* Responsive sidebar */
+.sidebar {
+  @apply hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col;
+}
+
+.sidebar-mobile {
+  @apply lg:hidden;
+}
+
+/* Main content */
+.main-content {
+  @apply lg:pl-72;
+}
+
+/* Header */
+.header {
+  @apply sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8;
+} 
